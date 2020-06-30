@@ -1,4 +1,5 @@
-from flask import Flask, render_template,  request, redirect 
+import json
+from flask import Flask, jsonify, render_template,  request, redirect 
 from flask_sqlalchemy import SQLAlchemy  
 from datetime import datetime 
 
@@ -61,6 +62,17 @@ def update(id):
     else:
         title = "Update Data"
         return render_template('update.html', title=title, grocery=grocery)
+
+@app.route('/data', methods=['GET'])
+def get_current_data():
+    with open('json/data.json','r') as f:
+        data = json.load(f);
+        response = jsonify({"Message": "Data read"}, data)
+        response.status_code = 200
+        return response
+    # return jsonify(username=g.user.username,
+    #                email=g.user.email,
+    #                id=g.user.id)
 
 if __name__ == '__main__':
     app.run(debug=True)

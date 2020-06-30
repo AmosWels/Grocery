@@ -27,4 +27,6 @@ Git clone repo here with `git clone https://github.com/AmosWels/Grocery.git`
 ### Run App
 `python app.py` and check out your server on the browser at `http://127.0.0.1:5000/`
 
+Check it out [here](https://grocery2020.herokuapp.com/)
+
 
